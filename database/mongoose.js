@@ -1,6 +1,8 @@
 const mongoose = require("mongoose");
 mongoose.Promise = globalThis.Promise;
-mongoose.connect('mongodb://127.0.0.1:27017/taskmanager')
+mongoose.connect('mongodb://127.0.0.1:27017/taskmanager',{ 
+  serverSelectionTimeoutMS: 30000 // Increase timeout to 30 seconds
+})
   .then(() => {
     console.log('DB Connected!')
 })
